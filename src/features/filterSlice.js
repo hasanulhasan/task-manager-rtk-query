@@ -10,15 +10,12 @@ const filterSlice = createSlice({
   reducers: {
     projectSelect: (state, action) => {
       const checkProject = state.projects.find(project => project === action.payload)
-
-      console.log(checkProject);
-
       if (checkProject === undefined) {
         state.projects.push(action.payload)
       }
       else {
         const updatedProject = state.projects.filter(project => project !== action.payload)
-        console.log(updatedProject)
+        state.projects = updatedProject
       }
     }
   }

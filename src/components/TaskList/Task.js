@@ -1,8 +1,21 @@
 import React from 'react';
+import { useStatusChangeMutation } from '../../features/Tasks/tasksApi';
 const Task = ({ task }) => {
-  const { id, deadline, project, teamMember, taskName } = task;
+  const { id: taskId, deadline, project, teamMember, taskName, status } = task;
   const { id: projectId, projectName, colorClass } = project;
   const { id: teamMemberId, name, avatar } = teamMember;
+  const [statusChange, { isLoading, isSuccess, isError }] = useStatusChangeMutation();
+
+  const handleStatusChange = (e) => {
+    console.log(e.target.value);
+    const currentStatus = e.target.value
+    statusChange({
+      id: taskId,
+      data: {
+        taskName, teamMember, project, deadline, status: currentStatus
+      }
+    })
+  }
 
   return (
     <div class="lws-task">
@@ -44,8 +57,8 @@ const Task = ({ task }) => {
               d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
           </svg>
         </button>
-        <select class="lws-status">
-          <option value="pending" selected>Pending</option>
+        <select value={status} class="lws-status" onChange={handleStatusChange}>
+          <option value="pending">Pending</option>
           <option value="inProgress">In Progress</option>
           <option value="complete">Completed</option>
         </select>
