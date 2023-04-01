@@ -4,7 +4,7 @@ import Task from './Task';
 
 const TaskList = () => {
   const { data: tasks, isLoading, isError, } = useGetTasksQuery();
-  console.log(tasks)
+  // console.log(tasks)
   let content = null;
   if (isLoading) content = <div>Loading...</div>;
   if (!isLoading && isError) content = <div>Error...</div>;
