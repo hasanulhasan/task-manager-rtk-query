@@ -4,7 +4,8 @@ export const tasksApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
 
     getTasks: builder.query({
-      query: () => '/tasks'
+      query: () => '/tasks',
+      providesTags: ['tasks']
     }),
 
     statusChange: builder.mutation({
@@ -12,7 +13,8 @@ export const tasksApi = apiSlice.injectEndpoints({
         url: `/tasks/${id}`,
         method: 'PATCH',
         body: data
-      })
+      }),
+      invalidatesTags: ['tasks']
     })
 
   })
