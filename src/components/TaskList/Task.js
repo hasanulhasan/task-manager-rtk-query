@@ -1,10 +1,22 @@
-import React from 'react';
-import { useStatusChangeMutation } from '../../features/Tasks/tasksApi';
+import React, { useEffect } from 'react';
+import { useDeleteTaskMutation, useStatusChangeMutation } from '../../features/Tasks/tasksApi';
+import toast, { Toaster } from 'react-hot-toast';
+
 const Task = ({ task }) => {
   const { id: taskId, deadline, project, teamMember, taskName, status } = task;
   const { id: projectId, projectName, colorClass } = project;
   const { id: teamMemberId, name, avatar } = teamMember;
-  const [statusChange, { isLoading, isSuccess, isError }] = useStatusChangeMutation();
+  const [statusChange, { isLoading, isSuccess: statusChangeSuccess, isError }] = useStatusChangeMutation();
+  const [deleteTask, { isSuccess: deleteSuccess }] = useDeleteTaskMutation();
+
+  useEffect(() => {
+    if (statusChangeSuccess) {
+      toast('Status Changed')
+    }
+    if (deleteSuccess) {
+      toast('Task Deleted')
+    }
+  }, [statusChangeSuccess, deleteSuccess])
 
   const handleStatusChange = (e) => {
     e.preventDefault();
@@ -15,6 +27,9 @@ const Task = ({ task }) => {
         taskName, teamMember, project, deadline, status: currentStatus
       }
     })
+  }
+  const handleDelete = () => {
+    deleteTask(taskId)
   }
 
   return (
@@ -38,7 +53,7 @@ const Task = ({ task }) => {
         {
           status === 'complete' ?
             <>
-              <button class="lws-delete">
+              <button onClick={() => handleDelete()} class="lws-delete">
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
@@ -70,6 +85,7 @@ const Task = ({ task }) => {
           <option value="complete">Completed</option>
         </select>
       </div>
+      <Toaster />
     </div>
   );
 };

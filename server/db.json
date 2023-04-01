@@ -98,8 +98,7 @@
         "colorClass": "color-flight"
       },
       "deadline": "2023-03-23",
-      "id": 2,
-      "status": "complete"
+      "id": 2
     },
     {
       "taskName": "Task Three",
@@ -114,8 +113,7 @@
         "colorClass": "color-productCart"
       },
       "deadline": "2023-03-03",
-      "id": 3,
-      "status": "complete"
+      "id": 3
     },
     {
       "taskName": "New Task",
@@ -131,22 +129,6 @@
       },
       "deadline": "2023-03-11",
       "id": 4,
-      "status": "complete"
-    },
-    {
-      "taskName": "Fix a bug",
-      "teamMember": {
-        "name": "Md Salahuddin",
-        "avatar": "/images/avatars/salahuddin.png",
-        "id": 4
-      },
-      "deadline": "2023-03-18",
-      "project": {
-        "id": 4,
-        "projectName": "Book Store",
-        "colorClass": "color-bookstore"
-      },
-      "id": 5,
       "status": "inProgress"
     }
   ]
