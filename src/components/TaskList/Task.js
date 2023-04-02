@@ -11,10 +11,10 @@ const Task = ({ task }) => {
 
   useEffect(() => {
     if (statusChangeSuccess) {
-      toast('Status Changed')
+      toast.success('Status Changed')
     }
     if (deleteSuccess) {
-      toast('Task Deleted')
+      toast.success('Task Deleted')
     }
   }, [statusChangeSuccess, deleteSuccess])
 

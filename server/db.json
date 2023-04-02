@@ -114,7 +114,8 @@
         "colorClass": "color-productCart"
       },
       "deadline": "2023-03-03",
-      "id": 3
+      "id": 3,
+      "status": "inProgress"
     },
     {
       "taskName": "New Task",
@@ -131,6 +132,22 @@
       "deadline": "2023-03-11",
       "id": 4,
       "status": "inProgress"
+    },
+    {
+      "taskName": "Do assignment",
+      "teamMember": {
+        "name": "Saad Hasan",
+        "avatar": "/images/avatars/sadh.png",
+        "id": 2
+      },
+      "project": {
+        "id": 2,
+        "projectName": "Flight Booking",
+        "colorClass": "color-flight"
+      },
+      "deadline": "2023-04-10",
+      "status": "complete",
+      "id": 6
     }
   ]
 }

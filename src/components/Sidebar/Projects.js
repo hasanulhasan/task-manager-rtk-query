@@ -4,8 +4,7 @@ import { projectSelect } from '../../features/filterSlice';
 
 const Projects = ({ project }) => {
   const dispatch = useDispatch();
-  // console.log(project)
-  const { id, projectName, colorClass } = project
+  const { projectName, colorClass } = project || {}
 
   const handleSelectedProject = () => {
     dispatch(projectSelect(projectName))
