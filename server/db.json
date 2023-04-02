@@ -98,7 +98,8 @@
         "colorClass": "color-flight"
       },
       "deadline": "2023-03-23",
-      "id": 2
+      "id": 2,
+      "status": "inProgress"
     },
     {
       "taskName": "Task Three",
