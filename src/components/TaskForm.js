@@ -32,7 +32,6 @@ const TaskForm = () => {
     e.preventDefault();
     const selectedTeamMember = team.find(teamPerson => teamPerson.name === teamMember);
     const selectedProjectName = projects.find(project => project.projectName === projectName);
-    console.log(selectedProjectName, selectedTeamMember)
     if (selectedProjectName && selectedTeamMember) {
       addTask({
         taskName,
@@ -74,6 +73,7 @@ const TaskForm = () => {
           onChange={(e) => setTeamMember(e.target.value)}
           name="teamMember"
           id="lws-teamMember" required>
+          <option value="" hidden selected>Select Member</option>
           {
             teamItem
           }
@@ -86,6 +86,7 @@ const TaskForm = () => {
           onChange={(e) => setProjectName(e.target.value)}
           id="lws-projectName"
           name="projectName" required>
+          <option value="" hidden selected>Select Project</option>
           {
             projectItem
           }

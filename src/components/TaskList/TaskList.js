@@ -4,7 +4,7 @@ import Task from './Task';
 import { useSelector } from 'react-redux';
 
 const TaskList = () => {
-  const { projects } = useSelector(state => state.filter)
+  const { projects, search } = useSelector(state => state.filter)
   // console.log(projects);
   const { data: tasks, isLoading, isError, } = useGetTasksQuery();
   // console.log(tasks)
@@ -32,6 +32,7 @@ const TaskList = () => {
 
       // return task
     })
+    .filter(task => task.taskName.toLowerCase().includes(search.toLowerCase()))
     .map(task => <Task key={task.id} task={task} />)
 
   return (

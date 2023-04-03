@@ -148,6 +148,38 @@
       "deadline": "2023-04-10",
       "status": "complete",
       "id": 6
+    },
+    {
+      "taskName": "Test Task",
+      "teamMember": {
+        "name": "Arif Almas",
+        "avatar": "/images/avatars/almas.png",
+        "id": 7
+      },
+      "project": {
+        "id": 6,
+        "projectName": "Job Finder",
+        "colorClass": "color-jobFinder"
+      },
+      "deadline": "2023-04-03",
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "taskName": "Sumit Redux",
+      "teamMember": {
+        "name": "Sumit Saha",
+        "avatar": "/images/avatars/sumit.png",
+        "id": 1
+      },
+      "project": {
+        "id": 1,
+        "projectName": "Scoreboard",
+        "colorClass": "color-scoreboard"
+      },
+      "deadline": "2023-04-05",
+      "status": "pending",
+      "id": 8
     }
   ]
 }
