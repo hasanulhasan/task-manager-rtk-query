@@ -182,7 +182,7 @@
       "id": 8
     },
     {
-      "taskName": "New Project",
+      "taskName": "New Project 20",
       "teamMember": {
         "name": "Md Salahuddin",
         "avatar": "/images/avatars/salahuddin.png",
@@ -194,7 +194,7 @@
         "colorClass": "color-flight"
       },
       "deadline": "2023-04-29",
-      "status": "inProgress",
+      "status": "pending",
       "id": 9
     },
     {
@@ -212,6 +212,22 @@
       "deadline": "2023-04-08",
       "status": "pending",
       "id": 10
+    },
+    {
+      "taskName": "Test Task 70",
+      "teamMember": {
+        "name": "Sumit Saha",
+        "avatar": "/images/avatars/sumit.png",
+        "id": 1
+      },
+      "project": {
+        "id": 2,
+        "projectName": "Flight Booking",
+        "colorClass": "color-flight"
+      },
+      "deadline": "2023-04-09",
+      "status": "pending",
+      "id": 11
     }
   ]
 }
