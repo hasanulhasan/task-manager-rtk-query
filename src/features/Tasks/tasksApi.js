@@ -5,7 +5,7 @@ export const tasksApi = apiSlice.injectEndpoints({
 
     getTasks: builder.query({
       query: () => '/tasks',
-      // providesTags: ['tasks']
+      providesTags: ['tasks']
     }),
 
     getTask: builder.query({
@@ -43,7 +43,7 @@ export const tasksApi = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          console.log('queryfullfilled arg', arg);
+          // console.log('queryfullfilled arg', arg);
           dispatch(
             apiSlice.util.updateQueryData('getTask', arg.id, (draft) => {
               return data;
@@ -52,6 +52,7 @@ export const tasksApi = apiSlice.injectEndpoints({
           // also update getTasks a cache, when a task is edited
           dispatch(
             apiSlice.util.updateQueryData('getTasks', undefined, (draft) => {
+
               return draft.map(item => (item.id === data.id ? data : item))
             })
           )
@@ -75,7 +76,20 @@ export const tasksApi = apiSlice.injectEndpoints({
         url: `/tasks/${id}`,
         method: 'DELETE'
       }),
-      invalidatesTags: ['tasks']
+      // invalidatesTags: ['tasks']
+      //optimistic update
+      onQueryStarted: async (arg, { dispatch, queryFulfilled }) => {
+        const patchResult = dispatch(
+          apiSlice.util.updateQueryData('getTasks', undefined, (draft) => {
+            return draft.filter(task => task.id !== arg);
+          })
+        );
+        try {
+          await queryFulfilled;
+        } catch (error) {
+          patchResult.undo();
+        }
+      }
     })
   })
 })
