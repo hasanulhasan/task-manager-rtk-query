@@ -118,7 +118,7 @@
       "status": "inProgress"
     },
     {
-      "taskName": "Do assignment",
+      "taskName": "Do assignment 2",
       "teamMember": {
         "name": "Saad Hasan",
         "avatar": "/images/avatars/sadh.png",
@@ -146,7 +146,7 @@
         "colorClass": "color-flight"
       },
       "deadline": "2023-04-08",
-      "status": "pending",
+      "status": "complete",
       "id": 10
     }
   ]
