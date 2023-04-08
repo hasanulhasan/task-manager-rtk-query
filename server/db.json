@@ -180,6 +180,38 @@
       "deadline": "2023-04-05",
       "status": "pending",
       "id": 8
+    },
+    {
+      "taskName": "New Project",
+      "teamMember": {
+        "name": "Md Salahuddin",
+        "avatar": "/images/avatars/salahuddin.png",
+        "id": 4
+      },
+      "project": {
+        "id": 2,
+        "projectName": "Flight Booking",
+        "colorClass": "color-flight"
+      },
+      "deadline": "2023-04-29",
+      "status": "inProgress",
+      "id": 9
+    },
+    {
+      "taskName": "Submit Assignment",
+      "teamMember": {
+        "name": "Akash Ahmed",
+        "avatar": "/images/avatars/akash.png",
+        "id": 3
+      },
+      "project": {
+        "id": 2,
+        "projectName": "Flight Booking",
+        "colorClass": "color-flight"
+      },
+      "deadline": "2023-04-08",
+      "status": "pending",
+      "id": 10
     }
   ]
 }

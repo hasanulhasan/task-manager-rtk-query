@@ -5,11 +5,32 @@ export const tasksApi = apiSlice.injectEndpoints({
 
     getTasks: builder.query({
       query: () => '/tasks',
-      providesTags: ['tasks']
+      // providesTags: ['tasks']
     }),
 
     getTask: builder.query({
       query: (id) => `/tasks/${id}`
+    }),
+
+    addTask: builder.mutation({
+      query: (data) => ({
+        url: `/tasks`,
+        method: 'POST',
+        body: data
+      }),
+      // invalidatesTags: ['tasks']
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(
+            apiSlice.util.updateQueryData('getTasks', undefined, (draft) => {
+              draft.push(data);
+            })
+          );
+        } catch (error) {
+          console.error(error);
+        }
+      }
     }),
 
     statusChange: builder.mutation({
@@ -36,17 +57,7 @@ export const tasksApi = apiSlice.injectEndpoints({
         method: 'DELETE'
       }),
       invalidatesTags: ['tasks']
-    }),
-
-    addTask: builder.mutation({
-      query: (data) => ({
-        url: `/tasks`,
-        method: 'POST',
-        body: data
-      }),
-      invalidatesTags: ['tasks']
     })
-
   })
 })
 
