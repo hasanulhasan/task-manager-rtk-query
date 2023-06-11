@@ -99,7 +99,7 @@
       },
       "deadline": "2023-04-08",
       "id": 2,
-      "status": "pending"
+      "status": "inProgress"
     },
     {
       "taskName": "Task Three",
@@ -148,6 +148,22 @@
       "deadline": "2023-04-08",
       "status": "complete",
       "id": 10
+    },
+    {
+      "taskName": "Check Assignment",
+      "teamMember": {
+        "name": "Riyadh Hassan",
+        "avatar": "/images/avatars/riyadh.png",
+        "id": 5
+      },
+      "project": {
+        "id": 2,
+        "projectName": "Flight Booking",
+        "colorClass": "color-flight"
+      },
+      "deadline": "2023-06-27",
+      "status": "complete",
+      "id": 11
     }
   ]
 }
